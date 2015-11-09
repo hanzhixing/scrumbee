@@ -35,7 +35,9 @@
             hostname: '192.168.56.1', // selenium grid服务器IP
             port: 4444,
         };
+        
         ...
+        
         config.set({
         
             ...
