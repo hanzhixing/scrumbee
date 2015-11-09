@@ -10,3 +10,14 @@
 -jar /Users/hanzhixing/playground/selenium/selenium-server-standalone-2.48.2.jar \
 -Dwebdriver.chrome.driver=/Users/hanzhixing/playground/selenium/chromedriver
 ```
+## 测试用例所在机器上要做的事情
+1. 这是执行protractor和karma的环境。
+2. 对protractor，在protractor-conf.js文件中
+```javascript
+    directConnect: false,
+    seleniumAddress: 'http://远程浏览器所在机器的IP:4444/wd/hub',
+    baseUrl: 'http://项目所在机器的IP:8000/', // 就是通过浏览器访问项目
+```
+3. 对karma，在karma.conf.js文件中
+```javascript
+```
