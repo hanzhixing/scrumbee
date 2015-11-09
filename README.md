@@ -15,8 +15,8 @@
 2. 对protractor，在protractor-conf.js文件中
 ```javascript
     directConnect: false,
-    seleniumAddress: 'http://远程机器的IP:4444/wd/hub',
-    baseUrl: 'http://项目所在机器的IP:8000/', // 就是通过浏览器访问项目
+    seleniumAddress: 'http://192.168.56.1:4444/wd/hub', // selenium gird服务器IP
+    baseUrl: 'http://192.168.56.105:8000/', // 站点地址
 ```
 3. 对karma，在package.json文件中
 ```javascript
@@ -33,7 +33,7 @@
 4. 对karma，在karma.conf.js文件中
 ```javavscript
     var webdriverConfig = {
-        hostname: '远程机器IP',
+        hostname: '192.168.56.1', // selenium grid服务器IP
         port: 4444,
     };
     ...
@@ -41,7 +41,7 @@
     
         ...
         
-        hostname: 'karma服务器IP',
+        hostname: '192.168.56.105', // karma服务器IP
         port: 9876,
         
         ...
