@@ -15,9 +15,61 @@
 2. 对protractor，在protractor-conf.js文件中
 ```javascript
     directConnect: false,
-    seleniumAddress: 'http://远程浏览器所在机器的IP:4444/wd/hub',
+    seleniumAddress: 'http://远程机器的IP:4444/wd/hub',
     baseUrl: 'http://项目所在机器的IP:8000/', // 就是通过浏览器访问项目
 ```
-3. 对karma，在karma.conf.js文件中
+3. 对karma，在package.json文件中
 ```javascript
+    "devDependencies": {
+    
+        ...
+        
+        "karma-webdriver-launcher": "^1.0.4",
+        
+        ...
+        
+    },
+```
+4. 对karma，在karma.conf.js文件中
+```javavscript
+    var webdriverConfig = {
+        hostname: '远程机器IP',
+        port: 4444,
+    };
+    ...
+    config.set({
+    
+        ...
+        
+        hostname: 'karma服务器IP',
+        port: 9876,
+        
+        ...
+        
+        customLaunchers: {
+            'remoteosxchrome': {
+                base: 'WebDriver',
+                config: webdriverConfig,
+                browserName: 'chrome',
+                platform: 'OS X',
+                version: '46.0',
+            }
+        },
+        
+        ...
+        
+        browsers : ['remoteosxchrome'],
+        
+        ...
+        
+        plugins : [
+            
+            ...
+            
+            'karma-webdriver-launcher',
+            
+            ...
+            
+        ],
+
 ```
