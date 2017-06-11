@@ -1,10 +1,5 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 80px;
-  fill: red;
+#logo {
+  fill: #0045A3;
 }
 
 .App-header {

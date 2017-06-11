@@ -1,38 +1,43 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './Layout.css';
-const Snap = require(`imports-loader?this=>window,fix=>module.exports=0!snapsvg/dist/snap.svg.js`);
+import React, { Component } from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
+import Logo from './Logo'
+import AsyncHome from './Home/async'
+import AsyncAbout from './About/async'
+import './Layout.css'
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+class Layout extends Component {
+  // constructor(props) {
+  //   super(props)
+  // }
 
-    this.domRefs = {
-      logo: undefined,
-    };
-  }
-  componentDidMount() {
-    console.log(this.domRefs.logo);
-    this.logoSnap = Snap(this.domRefs.logo);
-
-    Snap.load(logo, (data) => {
-      console.log(data.node);
-      this.domRefs.logo.append(data.node);
-    });
-  }
+  // componentDidMount() {
+  // }
 
   render() {
     return (
-      <div className="Layout">
-        <header className="header-container">
-          <svg id="logo" className="logo" ref={dom => this.domRefs.logo = dom}></svg>
-        </header>
-        <div className="main-container">
-          To get started, edit <code>src/App.js</code> and save to reload.
+      <Router>
+        <div className="Layout">
+            <header className="header-container"><Logo /></header>
+            <nav>
+              <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/about">About</Link></li>
+                <li><Link to="/topics">Topics</Link></li>
+              </ul>
+            </nav>
+
+            <div className="main-container">
+              <Route exact path="/" component={AsyncHome}/>
+              <Route path="/about" component={AsyncAbout}/>
+            </div>
         </div>
-      </div>
-    );
+      </Router>
+    )
   }
 }
 
-export default App;
+export default Layout
