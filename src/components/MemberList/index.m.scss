@@ -1,0 +1,14 @@
+.row {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 0;
+    list-style: none;
+}
+.box {
+    margin-right: 10px;
+    padding: 5px 20px;
+    font-weight: bold;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}

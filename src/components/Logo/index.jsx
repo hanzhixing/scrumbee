@@ -1,29 +1,33 @@
-import React from 'react'
-import logo from './logo.svg'
-const Snap = require(`imports-loader?this=>window,fix=>module.exports=0!snapsvg/dist/snap.svg.js`)
+import {PureComponent, createRef} from 'react';
+import Snap from 'snapsvg';
+import Bee from './bee.svg';
+import cx from './index.m.scss';
 
-class Logo extends React.Component {
-  constructor(props) {
-    super(props)
+class Logo extends PureComponent {
+    $ref = createRef();
 
-    this.domRefs = {
-      logo: undefined,
+    componentDidMount() {
+        const logo = Snap(this.$ref.current);
+
+        const tentacle = logo.selectAll('circle');
+
+        const blink = color => {
+            const fill = color === 'green' ? 'yellow' : 'green';
+
+            tentacle.animate({fill}, 1000, () => blink(fill));
+        };
+
+        blink();
     }
-  }
 
-  componentDidMount() {
-    this.logoSnap = Snap(this.domRefs.logo)
-
-    Snap.load(logo, (data) => {
-      this.domRefs.logo.append(data.node)
-    })
-  }
-
-  render() {
-    return(
-      <svg id="logo" className="logo" ref={dom => this.domRefs.logo = dom}></svg>
-    )
-  }
+    render() {
+        return(
+            <div className={cx('root')}>
+                <h1>Scrum Bee</h1>
+                <Bee ref={this.$ref} />
+            </div>
+        )
+    }
 }
 
 export default Logo

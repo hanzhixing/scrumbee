@@ -1,0 +1,21 @@
+.root {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    margin-bottom: 10px;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background: white;
+}
+
+.header {
+    margin: 0;
+    padding: 10px 20px;
+    background: #1976d2;
+    color: white;
+}
+
+.list {
+    font-size: 24px;
+}

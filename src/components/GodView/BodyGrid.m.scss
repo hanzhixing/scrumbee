@@ -1,0 +1,16 @@
+.cell {
+    display: flex;
+    align-items: flex-end;
+    box-sizing: border-box;
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+
+    > span {
+        width: 100%;
+        height: 50%;
+    }
+}
+
+.restday {
+    background: #999999;
+}
