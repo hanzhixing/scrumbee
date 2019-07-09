@@ -3,11 +3,11 @@ import {ScrollSync, ScrollSyncPane} from 'react-scroll-sync';
 import MemberList from '../../connects/MemberList';
 import Goals from '../../connects/GodView/Goals';
 import StoriesHeader from '../../connects/GodView/StoriesHeader';
+import StoriesBody from '../../connects/GodView/StoriesBody';
 import TasksHeader from '../../connects/GodView/TasksHeader';
+import TasksBody from '../../connects/GodView/TasksBody';
 import DaysHeader from '../../connects/GodView/DaysHeader';
-import Stories from '../../connects/GodView/Stories';
-import Tasks from '../../connects/GodView/Tasks';
-import DaysGrid from '../../connects/GodView/DaysGrid';
+import DaysBody from '../../connects/GodView/DaysBody';
 import cx from './index.m.scss';
 
 export default () => (
@@ -16,24 +16,24 @@ export default () => (
         <Goals />
         <ScrollSync>
             <div className={cx('root')}>
-                <div className={cx('header')}>
-                    <div className={cx('fixed-horizontal')}>
+                <div>
+                    <div className={cx('fixed-header')}>
                         <StoriesHeader />
                         <TasksHeader />
                     </div>
+                    <ScrollSyncPane group="vertical">
+                        <div className={cx('fixed-body')}>
+                            <StoriesBody />
+                            <TasksBody />
+                        </div>
+                    </ScrollSyncPane>
+                </div>
+                <div>
                     <ScrollSyncPane group="horizontal">
                         <DaysHeader />
                     </ScrollSyncPane>
-                </div>
-                <div className={cx('body')}>
-                    <ScrollSyncPane group="horizontal">
-                        <div className={cx('fixed-horizontal')}>
-                            <Stories />
-                            <Tasks />
-                        </div>
-                    </ScrollSyncPane>
                     <ScrollSyncPane group={["horizontal", "vertical"]}>
-                        <DaysGrid />
+                        <DaysBody />
                     </ScrollSyncPane>
                 </div>
             </div>

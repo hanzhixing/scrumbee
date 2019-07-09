@@ -1,7 +1,5 @@
 .root {
     display: flex;
-    border-right: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
     background: var(--primary-blue);
     font-weight: bold;
     color: white;
@@ -12,7 +10,8 @@
     box-sizing: border-box;
     justify-content: center;
     align-items: center;
-    border-right: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
 
     &:last-child {
         border-right: none;

@@ -1,5 +1,5 @@
 import {FixedSizeList, VariableSizeList, FixedSizeGrid, VariableSizeGrid} from 'react-window';
-import cx from './ColumnHeader.m.scss';
+import cx from './Header.m.scss';
 
 const Row = ({index, style, data}) => (
     <div style={style} className={cx('cell', data[index].classes)}>

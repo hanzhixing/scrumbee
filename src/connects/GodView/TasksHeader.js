@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import {compose, prop, sum, map, path, length, flatten} from 'ramda';
 import {lifecycle, withState, withProps} from 'recompose';
 import {createSelector} from 'reselect';
-import ColumnHeader from '../../components/GodView/ColumnHeader';
+import Header from '../../components/GodView/Header';
 
 const ColumnTexts = {
     importance: '重要性',
@@ -65,4 +65,4 @@ const mapDispatchToProps = undefined;
 
 const withRedux = connect(makeMapStateToProps, mapDispatchToProps);
 
-export default compose(withRedux)(ColumnHeader);
+export default compose(withRedux)(Header);

@@ -363,12 +363,12 @@ export default {
             gridColumnWidth: 20,
             columns: {
                 stories: [
-                    // {key: 'importance', align: 'right', valign: 'center', width: 60},
+                    {key: 'importance', align: 'right', valign: 'center', width: 60},
                     {key: 'title', align: 'left', valign: 'top', width: 200},
-                    // {key: 'status', align: 'center', valign: 'center', width: 80},
+                    {key: 'status', align: 'center', valign: 'center', width: 80},
                 ],
                 tasks: [
-                    // {key: 'importance', align: 'right', width: 60},
+                    {key: 'importance', align: 'right', width: 60},
                     {key: 'title', align: 'left', valign: 'top', width: 300},
                     {key: 'status', align: 'center', width: 80},
                     {key: '$member', align: 'center', width: 80},

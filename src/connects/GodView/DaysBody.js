@@ -5,7 +5,7 @@ import {createSelector} from 'reselect';
 import Color from 'color';
 import moment from 'moment';
 import {StatusColors} from '../../config';
-import BodyGrid from '../../components/GodView/BodyGrid';
+import Grid from '../../components/GodView/Grid';
 
 const makeSelectSprints = () => path(['entities', 'sprints']);
 
@@ -162,4 +162,4 @@ const mapDispatchToProps = undefined;
 
 const withRedux = connect(makeMapStateToProps, mapDispatchToProps);
 
-export default compose(withRedux)(BodyGrid);
+export default compose(withRedux)(Grid);

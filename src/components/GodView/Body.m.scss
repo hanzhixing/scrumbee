@@ -1,9 +1,14 @@
+.root {
+    display: flex;
+    box-sizing: border-box;
+}
+
 .cell {
     display: flex;
     box-sizing: border-box;
     align-items: center;
-    border-right: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
 
     span {
         padding: 0 3px;

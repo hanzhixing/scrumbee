@@ -1,18 +1,24 @@
 .root {
     display: flex;
-    flex-direction: column;
     margin-bottom: 10px;
     box-shadow: var(--box-shadow);
     border-radius: var(--border-radius);
     overflow: hidden;
     background: white;
 }
+
+.fixed-header {
+    display: flex;
+}
+.fixed-body {
+    display: flex;
+    overflow: auto;
+}
+
 .header {
     display: flex;
 }
+
 .body {
-    display: flex;
-}
-.fixed-horizontal {
     display: flex;
 }

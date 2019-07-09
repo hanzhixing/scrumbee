@@ -3,7 +3,7 @@ import {compose, values, prop, sum, multiply, map, path, length, flatten, last} 
 import {lifecycle, withState, withProps} from 'recompose';
 import {createSelector} from 'reselect';
 import moment from 'moment';
-import ColumnHeader from '../../components/GodView/ColumnHeader';
+import Header from '../../components/GodView/Header';
 
 const makeSelectSprints = () => path(['entities', 'sprints']);
 
@@ -82,4 +82,4 @@ const mapDispatchToProps = undefined;
 
 const withRedux = connect(makeMapStateToProps, mapDispatchToProps);
 
-export default compose(withRedux)(ColumnHeader);
+export default compose(withRedux)(Header);
