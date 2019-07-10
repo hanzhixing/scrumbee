@@ -1,3 +1,4 @@
+import {forwardRef} from 'react';
 import {FixedSizeList, VariableSizeList, FixedSizeGrid, VariableSizeGrid} from 'react-window';
 import {sum, map, prop, compose, path} from 'ramda';
 import cx from './Body.m.scss';
@@ -28,8 +29,20 @@ const Row = ({columnIndex, rowIndex, style, data}) => (
     </div>
 );
 
-export default ({width, height, rowCount, columnCount, getRowHeight, getColumnWidth, data}) => (
+const Body = ({
+    width,
+    height,
+    rowCount,
+    columnCount,
+    getRowHeight,
+    getColumnWidth,
+    data,
+    outerRef,
+    innerRef,
+    onScroll,
+}, ref) => (
     <VariableSizeGrid
+        ref={ref}
         width={width}
         height={height}
         rowCount={rowCount}
@@ -37,8 +50,13 @@ export default ({width, height, rowCount, columnCount, getRowHeight, getColumnWi
         rowHeight={getRowHeight}
         columnWidth={getColumnWidth}
         itemData={data}
+        outerRef={outerRef}
+        innerRef={innerRef}
+        onScroll={onScroll}
         className={cx('root')}
     >
         {Row}
     </VariableSizeGrid>
 );
+
+export default forwardRef(Body);

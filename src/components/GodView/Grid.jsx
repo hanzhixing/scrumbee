@@ -37,7 +37,7 @@ const Row = ({columnIndex, rowIndex, style, data}) => (
     </div>
 );
 
-export default ({width, height, rowCount, columnCount, getRowHeight, getColumnWidth, data}) => (
+const Grid = ({width, height, rowCount, columnCount, getRowHeight, getColumnWidth, data}) => (
     <VariableSizeGrid
         width={width}
         height={height}
@@ -51,3 +51,5 @@ export default ({width, height, rowCount, columnCount, getRowHeight, getColumnWi
         {Row}
     </VariableSizeGrid>
 );
+
+export default Grid;

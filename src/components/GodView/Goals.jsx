@@ -1,7 +1,7 @@
 import {always} from 'ramda';
 import cx from './Goals.m.scss';
 
-export default ({items}) => (
+const Goals = ({items}) => (
     <div className={cx('root')}>
         <h1 className={cx('header')}>Sprint目标</h1>
         <ol className={cx('list')}>
@@ -13,3 +13,5 @@ export default ({items}) => (
         </ol>
     </div>
 );
+
+export default Goals;

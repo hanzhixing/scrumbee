@@ -49,7 +49,7 @@ const makeMapStateToProps = () => createSelector(
     makeSelectGetSize(),
     makeSelectData(),
     (width, height, count, getSize, data) => ({
-        width,
+        width: 300,
         height,
         count,
         getSize,
@@ -59,6 +59,6 @@ const makeMapStateToProps = () => createSelector(
 
 const mapDispatchToProps = undefined;
 
-const withRedux = connect(makeMapStateToProps, mapDispatchToProps);
+const withRedux = connect(makeMapStateToProps, mapDispatchToProps, undefined, {forwardRef: true});
 
 export default compose(withRedux)(Header);

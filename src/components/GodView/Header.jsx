@@ -1,3 +1,4 @@
+import {forwardRef} from 'react';
 import {FixedSizeList, VariableSizeList, FixedSizeGrid, VariableSizeGrid} from 'react-window';
 import cx from './Header.m.scss';
 
@@ -7,8 +8,9 @@ const Row = ({index, style, data}) => (
     </div>
 );
 
-export default ({width, height, count, getSize, data}) => (
+const Header = ({width, height, count, getSize, data, outerRef, innerRef, onScroll}, ref) => (
     <VariableSizeList
+        ref={ref}
         layout="horizontal"
         width={width}
         height={height}
@@ -16,7 +18,12 @@ export default ({width, height, count, getSize, data}) => (
         itemSize={getSize}
         itemData={data}
         className={cx('root')}
+        outerRef={outerRef}
+        innerRef={innerRef}
+        onScroll={onScroll}
     >
         {Row}
     </VariableSizeList>
 );
+
+export default forwardRef(Header);
