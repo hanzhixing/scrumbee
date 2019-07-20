@@ -2,6 +2,7 @@
 import {createRef} from 'react';
 import OutsideClickHandler from 'react-outside-click-handler';
 import {NavLink} from 'react-router-dom';
+import GithubCat from '../assets/GithubCat.svg';
 import IconProject from 'open-iconic/svg/project.svg';
 import IconVerticalAlignTop from 'open-iconic/svg/vertical-align-top.svg';
 import IconPerson from 'open-iconic/svg/person.svg';
@@ -19,7 +20,7 @@ const Menu = () => {
 
     return (
         <OutsideClickHandler onOutsideClick={handleClickMenu}>
-            <nav className={cx('menu')}>
+            <nav className={cx('root')}>
                 <input
                     type="checkbox"
                     className={cx('menu-open')}
@@ -34,20 +35,23 @@ const Menu = () => {
                 <NavLink to="/god-view" className={cx('menu-item', 'item-1')} onClick={handleClickMenu}>
                     <IconProject className={cx('menu-icon')} />
                 </NavLink>
-                <NavLink to="/god-view" className={cx('menu-item', 'item-2')} onClick={handleClickMenu}>
+                <NavLink to="/standup-meeting" className={cx('menu-item', 'item-2')} onClick={handleClickMenu}>
                     <IconVerticalAlignTop className={cx('menu-icon')} />
+                </NavLink>
+                <NavLink to="/god-view" className={cx('menu-item', 'item-5')} onClick={handleClickMenu}>
+                    <IconFlag className={cx('menu-icon')} />
                 </NavLink>
                 <NavLink to="/god-view" className={cx('menu-item', 'item-3')} onClick={handleClickMenu}>
                     <IconPerson className={cx('menu-icon')} />
                 </NavLink>
                 <NavLink to="/god-view" className={cx('menu-item', 'item-4')} onClick={handleClickMenu}>
-                    <IconPeople className={cx('menu-icon')} />
-                </NavLink>
-                <NavLink to="/god-view" className={cx('menu-item', 'item-5')} onClick={handleClickMenu}>
-                    <IconFlag className={cx('menu-icon')} />
+                    <GithubCat className={cx('menu-icon')} />
                 </NavLink>
                 <NavLink to="/god-view" className={cx('menu-item', 'item-6')} onClick={handleClickMenu}>
                     <IconPieChart className={cx('menu-icon')} />
+                </NavLink>
+                <NavLink to="/god-view" className={cx('menu-item', 'item-7')} onClick={handleClickMenu}>
+                    <IconPeople className={cx('menu-icon')} />
                 </NavLink>
             </nav>
         </OutsideClickHandler>

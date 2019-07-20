@@ -26,21 +26,29 @@ class GodView extends PureComponent {
 
     innerRefOfStoriesBody = createRef();
 
+    // 任务头
+    refOfTasksHeader = createRef();
+
     outerRefOfTasksHeader = createRef();
 
     innerRefOfTasksHeader = createRef();
+
+    // 任务体
+    refOfTasksBody = createRef();
 
     outerRefOfTasksBody = createRef();
 
     innerRefOfTasksBody = createRef();
 
+    // 日期头
+    refOfDaysHeader = createRef();
+
     outerRefOfDaysHeader = createRef();
 
     innerRefOfDaysHeader = createRef();
 
-    outerRefOfDaysHeader = createRef();
-
-    innerRefOfDaysHeader = createRef();
+    // 日期体
+    refOfDaysBody = createRef();
 
     outerRefOfDaysBody = createRef();
 
@@ -55,14 +63,42 @@ class GodView extends PureComponent {
             this.outerRefOfStoriesHeader.current.addEventListener(
                 'mouseenter',
                 this.handleMouseEnterStoriesHeader,
-            )
+            );
         }
 
         if (this.outerRefOfStoriesBody.current) {
             this.outerRefOfStoriesBody.current.addEventListener(
                 'mouseenter',
                 this.handleMouseEnterStoriesBody,
-            )
+            );
+        }
+
+        if (this.outerRefOfTasksHeader.current) {
+            this.outerRefOfTasksHeader.current.addEventListener(
+                'mouseenter',
+                this.handleMouseEnterTasksHeader,
+            );
+        }
+
+        if (this.outerRefOfTasksBody.current) {
+            this.outerRefOfTasksBody.current.addEventListener(
+                'mouseenter',
+                this.handleMouseEnterTasksBody,
+            );
+        }
+
+        if (this.outerRefOfDaysHeader.current) {
+            this.outerRefOfDaysHeader.current.addEventListener(
+                'mouseenter',
+                this.handleMouseEnterDaysHeader,
+            );
+        }
+
+        if (this.outerRefOfDaysBody.current) {
+            this.outerRefOfDaysBody.current.addEventListener(
+                'mouseenter',
+                this.handleMouseEnterDaysBody,
+            );
         }
     }
 
@@ -72,6 +108,22 @@ class GodView extends PureComponent {
 
     handleMouseEnterStoriesBody = e => {
         this.setState({mouseIn: 'storiesBody'});
+    };
+
+    handleMouseEnterTasksHeader = e => {
+        this.setState({mouseIn: 'tasksHeader'});
+    };
+
+    handleMouseEnterTasksBody = e => {
+        this.setState({mouseIn: 'tasksBody'});
+    };
+
+    handleMouseEnterDaysHeader = e => {
+        this.setState({mouseIn: 'daysHeader'});
+    };
+
+    handleMouseEnterDaysBody = e => {
+        this.setState({mouseIn: 'daysBody'});
     };
 
     handleScrollStoriesHeader = ({
@@ -106,9 +158,111 @@ class GodView extends PureComponent {
                 this.refOfStoriesHeader.current.scrollTo(scrollLeft);
             }
         }
+        if (this.refOfTasksBody.current) {
+            if (mouseIn !== 'tasksBody') {
+                console.log(mouseIn);
+                this.refOfTasksBody.current.scrollTo({scrollTop});
+            }
+        }
+        if (this.refOfDaysBody.current) {
+            if (mouseIn !== 'daysBody') {
+                console.log(mouseIn);
+                this.refOfDaysBody.current.scrollTo({scrollTop});
+            }
+        }
     };
 
-    // mouseenter, mouseleave
+    handleScrollTasksHeader = ({
+        scrollDirection,
+        scrollOffset,
+        scrollUpdateWasRequested,
+    }) => {
+        const {mouseIn} = this.state;
+
+        if (this.refOfTasksBody.current) {
+            if (mouseIn !== 'tasksBody') {
+                console.log(mouseIn);
+                this.refOfTasksBody.current.scrollTo({
+                    scrollLeft: scrollOffset,
+                });
+            }
+        }
+    };
+
+    handleScrollTasksBody = ({
+        horizontalScrollDirection,
+        scrollLeft,
+        scrollTop,
+        scrollUpdateWasRequested,
+        verticalScrollDirection,
+    }) => {
+        const {mouseIn} = this.state;
+
+        if (this.refOfTasksHeader.current) {
+            if (mouseIn !== 'tasksHeader') {
+                console.log(mouseIn);
+                this.refOfTasksHeader.current.scrollTo(scrollLeft);
+            }
+        }
+        if (this.refOfStoriesBody.current) {
+            if (mouseIn !== 'storiesBody') {
+                console.log(mouseIn);
+                this.refOfStoriesBody.current.scrollTo({scrollTop});
+            }
+        }
+        if (this.refOfDaysBody.current) {
+            if (mouseIn !== 'daysBody') {
+                console.log(mouseIn);
+                this.refOfDaysBody.current.scrollTo({scrollTop});
+            }
+        }
+    };
+
+    handleScrollDaysHeader = ({
+        scrollDirection,
+        scrollOffset,
+        scrollUpdateWasRequested,
+    }) => {
+        const {mouseIn} = this.state;
+
+        if (this.refOfDaysBody.current) {
+            if (mouseIn !== 'daysBody') {
+                console.log(mouseIn);
+                this.refOfDaysBody.current.scrollTo({
+                    scrollLeft: scrollOffset,
+                });
+            }
+        }
+    };
+
+    handleScrollDaysBody = ({
+        horizontalScrollDirection,
+        scrollLeft,
+        scrollTop,
+        scrollUpdateWasRequested,
+        verticalScrollDirection,
+    }) => {
+        const {mouseIn} = this.state;
+
+        if (this.refOfDaysHeader.current) {
+            if (mouseIn !== 'daysHeader') {
+                console.log(mouseIn);
+                this.refOfDaysHeader.current.scrollTo(scrollLeft);
+            }
+        }
+        if (this.refOfStoriesBody.current) {
+            if (mouseIn !== 'storiesBody') {
+                console.log(mouseIn);
+                this.refOfStoriesBody.current.scrollTo({scrollTop});
+            }
+        }
+        if (this.refOfTasksBody.current) {
+            if (mouseIn !== 'tasksBody') {
+                console.log(mouseIn);
+                this.refOfTasksBody.current.scrollTo({scrollTop});
+            }
+        }
+    };
 
     render() {
         return (
@@ -133,20 +287,34 @@ class GodView extends PureComponent {
                         </div>
                     </div>
                     <div className={cx('section')}>
-                        <div ref={this.refOfTasksHeader}>
-                            <TasksHeader />
-                        </div>
-                        <div ref={this.refOfTasksBody}>
-                            <TasksBody />
+                        <TasksHeader
+                            ref={this.refOfTasksHeader}
+                            outerRef={this.outerRefOfTasksHeader}
+                            innerRef={this.innerRefOfTasksHeader}
+                            onScroll={this.handleScrollTasksHeader}
+                        />
+                        <div>
+                            <TasksBody
+                                ref={this.refOfTasksBody}
+                                outerRef={this.outerRefOfTasksBody}
+                                innerRef={this.innerRefOfTasksBody}
+                                onScroll={this.handleScrollTasksBody}
+                            />
                         </div>
                     </div>
                     <div className={cx('section')}>
-                        <div ref={this.refOfDaysHeader}>
-                            <DaysHeader />
-                        </div>
-                        <div ref={this.refOfDaysBody}>
-                            <DaysBody />
-                        </div>
+                        <DaysHeader
+                            ref={this.refOfDaysHeader}
+                            outerRef={this.outerRefOfDaysHeader}
+                            innerRef={this.innerRefOfDaysHeader}
+                            onScroll={this.handleScrollDaysHeader}
+                        />
+                        <DaysBody
+                            ref={this.refOfDaysBody}
+                            outerRef={this.outerRefOfDaysBody}
+                            innerRef={this.innerRefOfDaysBody}
+                            onScroll={this.handleScrollDaysBody}
+                        />
                     </div>
                 </div>
             </div>

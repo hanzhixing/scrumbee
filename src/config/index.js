@@ -6,6 +6,6 @@ export const StatusColors = {
     TODO: 'red',
     DOING: 'yellow',
     DONE: 'green',
-    CANCEL: 'brown',
+    CANCEL: 'gray',
     BLOCK: 'black',
 };

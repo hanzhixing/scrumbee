@@ -4,9 +4,9 @@ import {Router} from 'react-router';
 import history from './history';
 import fixpath from './fixpath';
 import store from './store';
-import App from './components/App';
+import Index from './components';
 
-import './styles/global.scss';
+import './index.m.scss';
 
 fixpath();
 
@@ -19,7 +19,7 @@ document.body.appendChild(root);
 render(
     <Provider store={store}>
         <Router history={history}>
-            <App />
+            <Index />
         </Router>
     </Provider>,
     root

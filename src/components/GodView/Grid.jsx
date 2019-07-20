@@ -1,5 +1,7 @@
+import {forwardRef} from 'react';
 import {FixedSizeList, VariableSizeList, FixedSizeGrid, VariableSizeGrid} from 'react-window';
 import {sum, map, prop, compose, path} from 'ramda';
+import scrollbarSize from 'dom-helpers/util/scrollbarSize';
 import cx from './Grid.m.scss';
 
 const getCellStyle = (data = {}) => {
@@ -37,19 +39,36 @@ const Row = ({columnIndex, rowIndex, style, data}) => (
     </div>
 );
 
-const Grid = ({width, height, rowCount, columnCount, getRowHeight, getColumnWidth, data}) => (
-    <VariableSizeGrid
-        width={width}
-        height={height}
-        rowCount={rowCount}
-        columnCount={columnCount}
-        rowHeight={getRowHeight}
-        columnWidth={getColumnWidth}
-        itemData={data}
-        className={cx('root')}
-    >
-        {Row}
-    </VariableSizeGrid>
+const Grid = ({
+    width,
+    height,
+    rowCount,
+    columnCount,
+    getRowHeight,
+    getColumnWidth,
+    data,
+    outerRef,
+    innerRef,
+    onScroll,
+}, ref) => (
+    <div style={{width, height}} className={cx('wrapper')}>
+        <VariableSizeGrid
+            ref={ref}
+            width={width}
+            height={height}
+            rowCount={rowCount}
+            columnCount={columnCount}
+            rowHeight={getRowHeight}
+            columnWidth={getColumnWidth}
+            itemData={data}
+            outerRef={outerRef}
+            innerRef={innerRef}
+            onScroll={onScroll}
+            className={cx('root')}
+        >
+            {Row}
+        </VariableSizeGrid>
+    </div>
 );
 
-export default Grid;
+export default forwardRef(Grid);

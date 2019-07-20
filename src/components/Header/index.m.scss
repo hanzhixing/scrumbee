@@ -1,6 +1,7 @@
-.header {
+.root {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    margin: 20px 50px;
 
     > svg {
         margin-right: 30px;

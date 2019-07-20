@@ -1,6 +1,7 @@
 import {forwardRef} from 'react';
 import {FixedSizeList, VariableSizeList, FixedSizeGrid, VariableSizeGrid} from 'react-window';
 import {sum, map, prop, compose, path} from 'ramda';
+import scrollbarSize from 'dom-helpers/util/scrollbarSize';
 import cx from './Body.m.scss';
 
 const getCellStyle = (data = {}) => {
@@ -41,22 +42,24 @@ const Body = ({
     innerRef,
     onScroll,
 }, ref) => (
-    <VariableSizeGrid
-        ref={ref}
-        width={width}
-        height={height}
-        rowCount={rowCount}
-        columnCount={columnCount}
-        rowHeight={getRowHeight}
-        columnWidth={getColumnWidth}
-        itemData={data}
-        outerRef={outerRef}
-        innerRef={innerRef}
-        onScroll={onScroll}
-        className={cx('root')}
-    >
-        {Row}
-    </VariableSizeGrid>
+    <div style={{width, height}} className={cx('wrapper')}>
+        <VariableSizeGrid
+            ref={ref}
+            width={width}
+            height={height}
+            rowCount={rowCount}
+            columnCount={columnCount}
+            rowHeight={getRowHeight}
+            columnWidth={getColumnWidth}
+            itemData={data}
+            outerRef={outerRef}
+            innerRef={innerRef}
+            onScroll={onScroll}
+            className={cx('root')}
+        >
+            {Row}
+        </VariableSizeGrid>
+    </div>
 );
 
 export default forwardRef(Body);

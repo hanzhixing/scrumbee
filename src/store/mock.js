@@ -25,7 +25,7 @@ export default {
                 id: '6901ebde-b605-492a-82cb-1f5ad43a7e7b',
                 title: '开发这个应用首先得有mock数据，写这个有点累。',
                 importance: 900,
-                status: 'DOING',
+                status: 'DONE',
                 $tasks: [
                     '930da241-6f93-48d2-9826-a299419c809b',
                     '3c728de7-bf3d-41cb-89af-da5bdf59487f',
@@ -36,7 +36,7 @@ export default {
             '81e8af0b-ecdc-41ad-ba59-ae04d0b3957c': {
                 id: '81e8af0b-ecdc-41ad-ba59-ae04d0b3957c',
                 title: '团队中所有人都可以通过上帝视角查阅Sprint的全貌',
-                status: 'TODO',
+                status: 'DOING',
                 $tasks: [
                     'f8a5b11b-4df3-4fa0-bc94-967fc84cafa9',
                     '9e6be069-03a8-48d6-ac5f-2131fd86c028',
@@ -59,16 +59,19 @@ export default {
                 id: '42743cf8-8f9d-4525-b102-8a9a2d10be0f',
                 title: '计划会议的时候可以专注Backlog和Story',
                 status: 'TODO',
+                $tasks: [],
             },
             'aa6f1555-9dad-44d9-9e45-044bba8d8569': {
                 id: 'aa6f1555-9dad-44d9-9e45-044bba8d8569',
                 title: 'Story要自动汇总任务的状态',
                 status: 'DOING',
+                $tasks: [],
             },
             'b86fa6a1-b7be-49f0-9c74-55077ccd54ed': {
                 id: 'b86fa6a1-b7be-49f0-9c74-55077ccd54ed',
                 title: '每个任务都要可视化方式来展示估算和实际成本',
                 status: 'TODO',
+                $tasks: [],
             },
         },
         tasks: {
@@ -363,18 +366,18 @@ export default {
             gridColumnWidth: 20,
             columns: {
                 stories: [
-                    {key: 'importance', align: 'right', valign: 'center', width: 60},
+                    // {key: 'importance', align: 'right', valign: 'center', width: 60},
                     {key: 'title', align: 'left', valign: 'top', width: 200},
-                    {key: 'status', align: 'center', valign: 'center', width: 80},
+                    // {key: 'status', align: 'center', valign: 'center', width: 80},
                 ],
                 tasks: [
-                    {key: 'importance', align: 'right', width: 60},
+                    // {key: 'importance', align: 'right', width: 60},
                     {key: 'title', align: 'left', valign: 'top', width: 300},
                     {key: 'status', align: 'center', width: 80},
                     {key: '$member', align: 'center', width: 80},
-                    {key: 'estimate', align: 'right', width: 50},
-                    {key: 'cost', align: 'right', width: 50},
-                    {key: 'unplanned', align: 'right', width: 60},
+                    // {key: 'estimate', align: 'right', width: 50},
+                    // {key: 'cost', align: 'right', width: 50},
+                    // {key: 'unplanned', align: 'right', width: 60},
                 ],
             }
         },

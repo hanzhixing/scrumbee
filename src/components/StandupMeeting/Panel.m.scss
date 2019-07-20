@@ -1,0 +1,40 @@
+.root {
+    box-shadow: 1px 1px 1px scale-color(black, $alpha: 50%);
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background: #434343;
+    overflow: hidden;
+
+}
+
+.header {
+    margin: 0;
+    padding: 20px 40px;
+    color: white;
+    font-size: 36px;
+    // text-shadow: 1px 1px 3px scale-color(black, $alpha: 30%);
+}
+
+.body {
+    min-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    max-height: 100%;
+    overflow: auto;
+}
+
+.todo {
+    background: #a33636;
+}
+
+.doing {
+    background: #cca045;
+}
+
+.done {
+    background: #287927;
+}
+
+.cancel {
+    background: #5a5959;
+}

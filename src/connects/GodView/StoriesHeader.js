@@ -49,7 +49,7 @@ const makeMapStateToProps = () => createSelector(
     makeSelectGetSize(),
     makeSelectData(),
     (width, height, count, getSize, data) => ({
-        width: 300,
+        width,
         height,
         count,
         getSize,

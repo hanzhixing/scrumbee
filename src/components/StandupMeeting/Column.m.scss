@@ -1,0 +1,86 @@
+.todo {
+    background: #cc4646;
+}
+
+.doing {
+    background: #cca045;
+}
+
+.done {
+    background: #3fa454;
+}
+
+.cancel {
+    background: #8b8a8a;
+}
+
+.root {
+    width: 25%;
+    height: 100%;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    background: #434343;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.5);
+    border-radius: 6px;
+    overflow: auto;
+    text-align: center;
+    overflow: hidden;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 30px;
+
+    &:first-child {
+        margin-left: 30px;
+    }
+}
+
+.body {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    min-height: 90px;
+    max-height: 100%;
+    background: #e2e4e6;
+    overflow: auto;
+    padding-bottom: 20px;
+}
+
+.header {
+    margin: 0;
+    padding: 10px;
+    color: white;
+    font-size: 16px;
+}
+
+.body {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    min-height: 90px;
+    max-height: 100%;
+    background: #e2e4e6;
+    overflow: auto;
+}
+
+.placeholder {
+    box-sizing: border-box;
+    background: #cccccc;
+    margin: 20px;
+    margin-bottom: 0;
+    border-radius: 5px;
+
+    &:before {
+        float: left;
+        content: "";
+        width: 1px;
+        height: 0;
+        margin-left: -1px;
+        padding-top: 61.8%;
+    }
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}

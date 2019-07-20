@@ -63,6 +63,6 @@ const makeMapStateToProps = () => createSelector(
 
 const mapDispatchToProps = undefined;
 
-const withRedux = connect(makeMapStateToProps, mapDispatchToProps);
+const withRedux = connect(makeMapStateToProps, mapDispatchToProps, undefined, {forwardRef: true});
 
 export default compose(withRedux)(Header);

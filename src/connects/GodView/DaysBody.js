@@ -148,8 +148,8 @@ const makeMapStateToProps = () => createSelector(
     makeSelectGetColumnWidth(),
     makeSelectData(),
     (width, height, rowCount, columnCount, getRowHeight, getColumnWidth, data) => ({
-        width,
-        height,
+        width: 960,
+        height: 300,
         rowCount,
         columnCount,
         getRowHeight,
@@ -160,6 +160,6 @@ const makeMapStateToProps = () => createSelector(
 
 const mapDispatchToProps = undefined;
 
-const withRedux = connect(makeMapStateToProps, mapDispatchToProps);
+const withRedux = connect(makeMapStateToProps, mapDispatchToProps, undefined, {forwardRef: true});
 
 export default compose(withRedux)(Grid);

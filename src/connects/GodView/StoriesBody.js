@@ -100,8 +100,8 @@ const makeMapStateToProps = () => createSelector(
     makeSelectGetColumnWidth(),
     makeSelectGridData(),
     (width, height, rowCount, columnCount, getRowHeight, getColumnWidth, data) => ({
-        width: 300,
-        height,
+        width,
+        height: 300,
         rowCount,
         columnCount,
         getRowHeight,
