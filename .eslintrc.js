@@ -1,21 +1,17 @@
 module.exports = {
     "parser": "babel-eslint",
-    "extends": [
-        "react-app",
-        "eslint:recommended",
-        "airbnb",
-        "plugin:prettier/recommended",
-    ],
-    "plugins": [
-        "react",
-        "prettier"
-    ],
+    "extends": ["airbnb"],
+    "plugins": ["react"],
     "rules": {
-        "prettier/prettier": ["off"],
         "no-console": ["off"],
         "no-unused-vars": ["off"],
         "no-shadow": ["off"],
         "indent": ["error", 4, {"SwitchCase": 1}],
+        "comma-dangle": ["error", "only-multiline"],
+        "object-curly-spacing": ["error", "never"],
+        "object-curly-newline": ["error", {"multiline": true, "consistent": true}],
+        "arrow-parens": ["error", "as-needed"],
+        "arrow-body-style": ["error", "as-needed"],
         "import/no-unresolved": ["off"],
         "import/prefer-default-export": ["off"],
         "import/no-extraneous-dependencies": ["off"],
@@ -28,6 +24,15 @@ module.exports = {
         "react/require-default-props": ["off"],
     },
     "globals": {
+        "require": "readonly",
         "ENV_PUBLIC_URL": "readonly",
+        "window": "readonly",
+        "document": "readonly",
+        "DOMException": "readonly",
+        "AbortController": "readonly",
+        "fetch": "readonly",
+        "Headers": "readonly",
+        "Request": "readonly",
+        "Response": "readonly",
     },
 };

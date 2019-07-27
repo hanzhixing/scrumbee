@@ -8,6 +8,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const safePostCssParser = require('postcss-safe-parser');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
+const Dotenv = require('dotenv-webpack');
 
 const homepage = require(path.resolve(__dirname, 'package.json')).homepage;
 
@@ -99,11 +100,11 @@ module.exports = (cliEnv = {}, argv) => {
             index: [
                 'abortcontroller-polyfill/dist/polyfill-patch-fetch',
                 '@babel/polyfill',
-                path.resolve(__dirname, 'src/index'),
+                path.resolve(__dirname, 'client/index'),
             ],
             '404': [
                 '@babel/polyfill',
-                path.resolve(__dirname, 'src/404'),
+                path.resolve(__dirname, 'client/404'),
             ]
         },
         output: {
@@ -115,7 +116,7 @@ module.exports = (cliEnv = {}, argv) => {
             devtoolModuleFilenameTemplate: isProd
                 ? info =>
                 path
-                .relative(path.resolve(__dirname, 'src'), info.absoluteResourcePath)
+                .relative(path.resolve(__dirname, 'client'), info.absoluteResourcePath)
                 .replace(/\\/g, '/')
                 : isDev &&
                 (info => path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')),
@@ -179,7 +180,7 @@ module.exports = (cliEnv = {}, argv) => {
                     loader: "eslint-loader",
                     include: [
                         path.resolve(__dirname),
-                        path.resolve(__dirname, 'src'),
+                        path.resolve(__dirname, 'client'),
                     ],
                     exclude: /node_modules/,
                 },
@@ -217,7 +218,7 @@ module.exports = (cliEnv = {}, argv) => {
                             test: /\.(js|mjs|jsx)$/,
                             include: [
                                 path.resolve(__dirname),
-                                path.resolve(__dirname, 'src'),
+                                path.resolve(__dirname, 'client'),
                             ],
                             loader: 'babel-loader',
                             options: {
@@ -295,6 +296,7 @@ module.exports = (cliEnv = {}, argv) => {
             ],
         },
         plugins: [
+            new Dotenv(),
             new HtmlWebpackPlugin({
                 title: 'Scrumee',
                 template: path.resolve(__dirname, 'public/index.html'),
