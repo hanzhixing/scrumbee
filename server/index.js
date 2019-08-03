@@ -1,6 +1,5 @@
 const path = require('path');
 const url = require('url');
-const sqlite3 = require('sqlite3').verbose();
 const Koa = require('koa');
 const cors = require('@koa/cors');
 const koaBodyParser = require('koa-bodyparser');
@@ -9,8 +8,9 @@ const uuidv4 = require('uuid/v4');
 const moment = require('moment');
 const {omit, keys, merge, concat, uniq, head, last, dropLast, reverse} = require('ramda');
 const util = require('util');
+const sqlite = require('./lib/sqlite');
 
-const {createSqlite3DatabaseProxiedHandler} = require('./lib/proxiedDbHandlers');
+const dbh = sqlite(path.resolve(__dirname, './db/default.db'));
 
 const {
     buildSelectQuery,
@@ -24,11 +24,6 @@ const app = new Koa();
 
 // app.use(cors());
 app.use(koaBodyParser());
-
-const dbh = new Proxy(
-    new sqlite3.Database(path.resolve(__dirname, './db/default.db')),
-    createSqlite3DatabaseProxiedHandler(),
-);
 
 app.use(async (ctx, next) => {
     const start = Date.now();

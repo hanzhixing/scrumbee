@@ -1,6 +1,6 @@
-const {omit, keys, merge, concat, uniq, head, last, dropLast, reverse} = require('ramda');
+const sqlite3 = require('sqlite3').verbose();
 
-const createSqlite3StatementProxiedHandler = () => ({
+const statement = {
     get: (target, property, receiver) => {
         switch (property) {
             case 'bind':
@@ -23,9 +23,9 @@ const createSqlite3StatementProxiedHandler = () => ({
             }
         }
     },
-});
+};
 
-const createSqlite3DatabaseProxiedHandler = () => ({
+const database = {
     get: (target, property, receiver) => {
         switch (property) {
             case 'run':
@@ -54,10 +54,7 @@ const createSqlite3DatabaseProxiedHandler = () => ({
                             return undefined;
                         });
 
-                        return resolve(new Proxy(
-                            sth,
-                            createSqlite3StatementProxiedHandler(),
-                        ));
+                        return resolve(new Proxy(sth, statement));
                     })
                 );
             }
@@ -66,8 +63,6 @@ const createSqlite3DatabaseProxiedHandler = () => ({
             }
         }
     },
-});
-
-module.exports = {
-    createSqlite3DatabaseProxiedHandler,
 };
+
+module.exports = path => new Proxy(new sqlite3.Database(path), database);

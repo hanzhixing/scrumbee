@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start:client": "webpack-dev-server --mode=development",
-    "start:server": "npx nodemon server/index.js"
+    "client": "webpack-dev-server --mode=development",
+    "server": "npx nodemon server/index.js"
   },
   "browserslist": [
     ">0.2%",
@@ -26,6 +26,7 @@
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-favicon": "^2.0.1",
+    "koa-router": "^7.4.0",
     "moment": "^2.24.0",
     "normalizr": "^3.4.0",
     "open-iconic": "^1.1.1",
